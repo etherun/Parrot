@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package parrot;
+
+service WhisperService {
+    rpc Transcribe (AudioPathRequest) returns (TextResponse);
+}
+
+message AudioPathRequest {
+    string path = 1;
+}
+
+message TextResponse {
+    string text = 1;
+}
