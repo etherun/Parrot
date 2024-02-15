@@ -2,10 +2,13 @@ import os
 import grpc
 import parrot_grpc
 from enum import Enum
+from pathlib import Path
 from functools import lru_cache
 from starlette.config import Config
 from starlette.datastructures import Secret
 from sqlalchemy import URL
+
+PROJECT_ROOT = Path(__file__).resolve().parent
 
 
 class Envs(Enum):

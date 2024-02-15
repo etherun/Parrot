@@ -18,3 +18,4 @@ async-property==0.2.2
 openai-whisper==20231117
 grpcio==1.60.1
 grpcio-tools==1.60.1
+python-multipart==0.0.9
