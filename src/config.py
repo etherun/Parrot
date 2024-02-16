@@ -8,7 +8,7 @@ from starlette.config import Config
 from starlette.datastructures import Secret
 from sqlalchemy import URL
 
-PROJECT_ROOT = Path(__file__).resolve().parent
+PROJECT_ROOT = Path(__file__).parent.parent
 
 
 class Envs(Enum):

@@ -1,8 +1,8 @@
-"""add_table_users_status
+"""add_table_videos
 
 Revision ID: 7aa687a57180
 Revises: 
-Create Date: 2023-12-11 18:41:01.984114
+Create Date: 2024-2-16 18:06:01.988888
 
 """
 from alembic import op
@@ -18,16 +18,14 @@ depends_on = None
 
 def upgrade() -> None:
     op.create_table(
-        "users",
+        "videos",
         sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
-        sa.Column("username", sa.String(255), unique=True, nullable=False),
-        sa.Column("email", sa.String(255), unique=True, nullable=False),
-        sa.Column("is_admin", sa.Boolean, server_default=sa.text("false")),
-        sa.Column("is_active", sa.Boolean, server_default=sa.text("true")),
+        sa.Column("checksum", sa.Text, unique=True, nullable=False),
+        sa.Column("text", sa.Text, nullable=True),
         sa.Column("created_time", sa.TIMESTAMP, server_default=sa.func.now()),
         sa.Column("updated_time", sa.TIMESTAMP, server_default=sa.func.now()),
     )
 
 
 def downgrade() -> None:
-    op.drop_table("users")
+    op.drop_table("videos")
