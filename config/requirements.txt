@@ -19,3 +19,5 @@ openai-whisper==20231117
 grpcio==1.60.1
 grpcio-tools==1.60.1
 python-multipart==0.0.9
+ffmpeg-python==0.2.0
+deepface==0.0.84
