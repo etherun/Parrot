@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cparrot.proto\x12\x06parrot\" \n\x10\x41udioPathRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\"\x1c\n\x0cTextResponse\x12\x0c\n\x04text\x18\x01 \x01(\t2N\n\x0eWhisperService\x12<\n\nTranscribe\x12\x18.parrot.AudioPathRequest\x1a\x14.parrot.TextResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cparrot.proto\x12\x06parrot\" \n\x10\x41udioPathRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\"\x1c\n\x0cTextResponse\x12\x0c\n\x04text\x18\x01 \x01(\t\"\x1b\n\x0bTextRequest\x12\x0c\n\x04text\x18\x01 \x01(\t2N\n\x0eWhisperService\x12<\n\nTranscribe\x12\x18.parrot.AudioPathRequest\x1a\x14.parrot.TextResponse2M\n\x15TextSentimentAnalysis\x12\x34\n\x07Predict\x12\x13.parrot.TextRequest\x1a\x14.parrot.TextResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,6 +25,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_AUDIOPATHREQUEST']._serialized_end=56
   _globals['_TEXTRESPONSE']._serialized_start=58
   _globals['_TEXTRESPONSE']._serialized_end=86
-  _globals['_WHISPERSERVICE']._serialized_start=88
-  _globals['_WHISPERSERVICE']._serialized_end=166
+  _globals['_TEXTREQUEST']._serialized_start=88
+  _globals['_TEXTREQUEST']._serialized_end=115
+  _globals['_WHISPERSERVICE']._serialized_start=117
+  _globals['_WHISPERSERVICE']._serialized_end=195
+  _globals['_TEXTSENTIMENTANALYSIS']._serialized_start=197
+  _globals['_TEXTSENTIMENTANALYSIS']._serialized_end=274
 # @@protoc_insertion_point(module_scope)

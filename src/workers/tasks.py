@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import json
 from pathlib import Path
 from deepface import DeepFace
 from sqlalchemy import update
@@ -35,11 +36,18 @@ def sentiment_analysis(checksum):
                 path=Path(video_dir, "audio.wav").absolute().as_posix()
             )
         )
+        text_sentiment_stub = parrot_pb2_grpc.TextSentimentAnalysisStub(Settings.whisper_channel)
+        text_sentiment_response = text_sentiment_stub.Predict(
+            parrot_pb2.TextRequest(
+                text=whisper_response.text.strip()
+            )
+        )
 
         query = update(Video).values(
             {
                 "text": whisper_response.text.strip(),
                 "emotion": emotions,
+                "text_analysis": json.loads(text_sentiment_response.text),
             }
         ).where(Video.checksum == checksum)
         async with sessionmanager.session() as db:

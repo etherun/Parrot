@@ -20,11 +20,11 @@ class VideoUtils:
         video_dir = f"{PROJECT_ROOT}/cache/{checksum[:2]}/{checksum[2:]}"
         video_path = Path(video_dir, "video").absolute().as_posix()
         audio_path = Path(video_dir, "audio.wav").absolute().as_posix()
-        ffmpeg.input(video_path).output(audio_path).run()
+        ffmpeg.input(video_path).output(audio_path).run(overwrite_output=True)
 
     @staticmethod
     def extract_frame(checksum):
         video_dir = f"{PROJECT_ROOT}/cache/{checksum[:2]}/{checksum[2:]}"
         video_path = Path(video_dir, "video").absolute().as_posix()
         frame_path = Path(video_dir, "frame-%d.png").absolute().as_posix()
-        ffmpeg.input(video_path).output(frame_path, vf='fps=1').run()
+        ffmpeg.input(video_path).output(frame_path, vf='fps=1').run(overwrite_output=True)

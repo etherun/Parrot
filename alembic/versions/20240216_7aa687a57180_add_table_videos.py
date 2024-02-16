@@ -22,6 +22,7 @@ def upgrade() -> None:
         sa.Column("id", sa.Integer, primary_key=True, autoincrement=True),
         sa.Column("checksum", sa.Text, unique=True, nullable=False),
         sa.Column("text", sa.Text, nullable=True),
+        sa.Column("text_analysis", sa.ARRAY(sa.JSON), nullable=True),
         sa.Column("emotion", sa.ARRAY(sa.JSON), nullable=True),
         sa.Column("created_time", sa.TIMESTAMP, server_default=sa.func.now()),
         sa.Column("updated_time", sa.TIMESTAMP, server_default=sa.func.now()),

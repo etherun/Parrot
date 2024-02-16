@@ -13,5 +13,6 @@ class Video(Base, DatabaseModel):
     checksum = Column(String, unique=True, nullable=False)
     text = Column(String, nullable=True)
     emotion = Column(ARRAY(pg.JSONB), nullable=True)
+    text_analysis = Column(ARRAY(pg.JSONB), nullable=True)
     created_time = Column(DateTime, default=datetime.utcnow())
     updated_time = Column(DateTime, default=datetime.utcnow())

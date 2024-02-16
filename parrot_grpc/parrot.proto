@@ -6,10 +6,18 @@ service WhisperService {
     rpc Transcribe (AudioPathRequest) returns (TextResponse);
 }
 
+service TextSentimentAnalysis {
+    rpc Predict (TextRequest) returns (TextResponse);
+}
+
 message AudioPathRequest {
     string path = 1;
 }
 
 message TextResponse {
+    string text = 1;
+}
+
+message TextRequest {
     string text = 1;
 }
