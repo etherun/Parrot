@@ -1,9 +1,9 @@
 import os
-import grpc
-import parrot_grpc
+from functools import lru_cache
 from enum import Enum
 from pathlib import Path
-from functools import lru_cache
+import grpc
+
 from starlette.config import Config
 from starlette.datastructures import Secret
 from sqlalchemy import URL
@@ -53,8 +53,9 @@ class Settings:
         f"{config('REDIS_PORT', cast=str, default='6379')}/"
         f"{config('REDIS_DB_NUM', cast=str, default=0)}"
     )
-    whisper_channel = grpc.insecure_channel(config("WHISPER_CHANNEL", cast=str, default="localhost:50051"))
-
+    whisper_channel = grpc.insecure_channel(
+        config("WHISPER_CHANNEL", cast=str, default="localhost:50051")
+    )
 
     @lru_cache()
     @staticmethod

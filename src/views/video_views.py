@@ -8,10 +8,9 @@ from fastapi_pagination.ext.sqlalchemy import paginate
 from src.utils.videos import VideoUtils
 from src.utils.pagination import Page
 from src.schemas.base import ResponseSchemaCustom
-from src.utils.exceptions import CustomException
 from src.services.database import get_db
 from src.models.video_models import Video
-from src.workers.tasks import sentiment_analysis 
+from src.workers.tasks import sentiment_analysis
 from src.schemas.video_schema import VideoSchema
 
 video_router = APIRouter(prefix="/videos", tags=["Videos"])
@@ -38,7 +37,7 @@ async def upload_video(
         )
     )
     await db_session.commit()
-    
+
     sentiment_analysis.delay(video_checksum)
     return ResponseSchemaCustom(data={"checksum": video_checksum})
 
